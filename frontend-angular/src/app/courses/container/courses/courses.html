@@ -1,0 +1,22 @@
+<mat-card appearance="outlined">
+
+    <mat-card-header>
+        <mat-toolbar class="toolbarCourse">
+            <span>Cursos Disponíveis</span>
+        </mat-toolbar>
+    </mat-card-header>
+
+
+    @if(courses$ | async; as courses){
+        <app-courses-list 
+            [courses]="courses"
+            (add)="onAdd()"
+        />
+    } @else {
+    <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+    </div>
+    }
+
+
+</mat-card>
